@@ -1,12 +1,12 @@
-import EventItem from "./EventItem";
-import PropTypes from "prop-types";
-import classes from './EventList.module.css'
+import EventItem from './EventItem';
+import PropTypes from 'prop-types';
+import classes from './EventList.module.css';
 
 const EventList = (props) => {
   const { items } = props;
 
   return (
-    <ul className={classes.list} >
+    <ul className={classes.list}>
       {items.map((item) => (
         <EventItem
           key={item.id}
@@ -22,7 +22,7 @@ const EventList = (props) => {
 };
 
 EventList.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default EventList;
