@@ -4,15 +4,24 @@ import classes from './Button.module.css';
 
 const Button = (props) => {
   const { link, children } = props;
+  if (link) {
+    return (
+      <Link href={link} passHref>
+        <span className={classes.btn}>{children}</span>
+      </Link>
+    );
+  }
+
   return (
-    <Link href={link} passHref>
-      <span className={classes.btn}>{children}</span>
-    </Link>
+    <button className={classes.btn} onClick={props.onClick}>
+      {children}
+    </button>
   );
 };
 
 Button.propTypes = {
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Button;
